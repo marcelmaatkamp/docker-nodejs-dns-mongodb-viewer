@@ -28,5 +28,5 @@ module.exports.models = {
   *                                                                          *
   ***************************************************************************/
   // migrate: 'alter'
-  sails.config.models.migrate: 'safe'
+  migrate: 'safe'
 };
