@@ -1,8 +1,8 @@
 <html>
- dns requests
+ dns requests [<%= dnses.length %>
  <ul>
-  <% for(var i=0; i<dnses.length; i++) {%>
-   <li><%= dnses[i].question.name %></li>
- <% } %>
+   <% for( var i=0; i < dnses.length; i++) { %>
+     <li><%= dnses[i].question.name %></li>
+   <% } %>
 </ul>
 </html>
