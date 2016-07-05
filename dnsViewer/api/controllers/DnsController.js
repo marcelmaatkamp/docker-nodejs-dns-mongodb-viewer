@@ -10,17 +10,20 @@ module.exports = {
 
     Dns.find()
    // .limit(3)
-   // .sort('createdAt desc')
+      .sort('timestamp desc')
+      .limit(500)
    // .where({ isPublished: 1 })
       .exec(function(err, dnses) {
         if(err){
           return next(err)
-        } else { 
-          res.view({dnses: dnses});
-          // res.view({ layout: "dns/index", dnses: dnses });    
+        } else {
+          res.view({
+            dnses: dnses,
+            count: Dns.count()
+          });
+          // res.view({ layout: "dns/index", dnses: dnses });
         }
-      });  
+      });
     }
 
 };
-
