@@ -1,0 +1,41 @@
+  <html>
+<style>
+body {
+    background-color: linen;
+}
+
+h1 {
+    color: maroon;
+    margin-left: 40px;
+}
+li {
+	font-family: monospace;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 18.5714px;
+}
+</style>
+<body>
+ KAART
+</body>
+  <script type="text/javascript" src="/js/dependencies/sails.io.js"></script>
+  <script type="text/javascript">
+
+    // get request
+    io.socket.get('/kaart/points', function serverResponded (body, JWR) {
+      console.log('Sails responded with: ', body);
+      console.log('with headers: ', JWR.headers);
+      console.log('and with status code: ', JWR.statusCode);
+    });
+
+    socket = io.connect();
+    socket.on('points', function newMessageFromSails ( message ) {
+      typeof console !== 'undefined' &&
+        console.log('New message received from Sails ::\n', message);
+    });
+
+  </script>
+</html>
+</html>
